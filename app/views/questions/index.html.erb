@@ -7,9 +7,9 @@
       <div class="col-sm-6 ">
         <div class="card card-block box">
           <p class="card-text"><%= question.choice1 %></p>
-          <%= form_for (question) do |f| %>
+          <%= form_for (question), remote: true do |f| %>
             <%= f.hidden_field(:vote1, :value => question.vote1 + 1) %>
-            <%= f.submit 'vote', :class => "btn btn-primary" %>
+            <%= f.submit 'vote'%>
           <% end %>
           <span><%= question.vote1 %> votes</span>
         </div>
@@ -17,7 +17,7 @@
       <div class="col-sm-6 ">
         <div class="card card-block box">
           <p class="card-text"><%= question.choice2 %></p>
-          <%= form_for (question) do |f| %>
+          <%= form_for (question), remote: true do |f| %>
             <%= f.hidden_field(:vote2, :value => question.vote2 + 1) %>
             <%= f.submit 'vote', :class => "btn btn-primary" %>
           <% end %>
