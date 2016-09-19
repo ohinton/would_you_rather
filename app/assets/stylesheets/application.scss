@@ -1,17 +1,18 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+body {
+  background-color: #F2F2F2;
+}
 .questions {
   padding-top: 100px;
 }
 
 .question-box {
-  border-style: solid;
-  border-width: thin;
-  border-color: gray;
   margin-bottom: 20px;
   padding: 40px;
   border-radius: 10px;
+  background-color: white;
 }
 
 .question {
