@@ -5,22 +5,12 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-choice1_list = [
-  "be half your height",
-  "be able to fly",
-  "go on a dream vacation for two weeks"
+question_list = [
+  ["be half your height", "double your weight"],
+  ["be able to fly", "be able to read minds"],
+  ["go on a dream vacation for two weeks", "spend five days with anyone in the world, but you have to stay in your hometown"]
 ]
 
-choice2_list = [
-  ["double your weight", 1],
-  ["be able to read minds", 2],
-  ["spend five days with anyone in the world, but you have to stay in your hometown"]
-]
-
-choice1_list.each do |content|
-  Choice1.create( content: content)
-end
-
-choice2_list.each do |content, choice1_id|
-  Choice2.create( content: content, choice1_id: choice1_id )
+question_list.each do |choice1, choice2|
+  Question.create( choice1: choice1, choice2: choice2)
 end
