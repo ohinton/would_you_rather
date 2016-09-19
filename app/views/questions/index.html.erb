@@ -1,29 +1,35 @@
-<div class="container">
-  <h1>Would you rather...</h1>
-
-
+<div class="questions">
     <% @questions.each do |question| %>
+    <div class="question-box">
+    <h1>Would you rather...</h1>
     <div class="row">
-      <div class="col-sm-6 ">
-        <div class="card card-block box">
+      <div class="col-sm-4 question">
+        <div class="card card-block">
           <p class="card-text"><%= question.choice1 %></p>
           <%= form_for (question), remote: true do |f| %>
             <%= f.hidden_field(:vote1, :value => question.vote1 + 1) %>
-            <%= f.submit 'vote'%>
+            <%= f.submit 'vote', :class => "btn btn-info"%>
           <% end %>
           <span id="<%=question.id%>_1"><%= question.vote1 %> votes</span>
         </div>
       </div>
-      <div class="col-sm-6 ">
-        <div class="card card-block box">
+
+      <div class="col-sm-4 question">
+        <h1>OR</h1>
+        <p>Total votes: <span class="total-votes" id="<%=question.id%>_votes"> <%= question.totalVotes %> </span> </p>
+      </div>
+
+      <div class="col-sm-4 question">
+        <div class="card card-block">
           <p class="card-text"><%= question.choice2 %></p>
           <%= form_for (question), remote: true do |f| %>
             <%= f.hidden_field(:vote2, :value => question.vote2 + 1) %>
-            <%= f.submit 'vote'%>
+            <%= f.submit 'vote', :class => "btn btn-info"%>
           <% end %>
           <span id="<%=question.id%>_2"><%= question.vote2 %> votes</span>
         </div>
       </div>
     </div>
+  </div>
     <% end %>
 </div>
