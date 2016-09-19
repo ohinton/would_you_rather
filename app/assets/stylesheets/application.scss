@@ -1,2 +1,12 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+.box {
+  border-style: solid;
+  border-width: thin;
+  border-color: gray;
+  margin-bottom: 20px;
+  padding: 20px;
+  border-radius: 10px;
+
+}

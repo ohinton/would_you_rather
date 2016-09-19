@@ -1,8 +1,29 @@
-<h1>Question</h1>
+<div class="container">
+  <h1>Would you rather...</h1>
 
-<ul>
-  <% @questions.each do |question| %>
-    <li><%= question.choice1 %></li>
-    <li><%= question.choice2 %></li>
-  <% end %>
-</ul>
+
+    <% @questions.each do |question| %>
+    <div class="row">
+      <div class="col-sm-6 ">
+        <div class="card card-block box">
+          <p class="card-text"><%= question.choice1 %></p>
+          <%= form_for (question) do |f| %>
+            <%= f.hidden_field(:vote1, :value => question.vote1 + 1) %>
+            <%= f.submit 'vote', :class => "btn btn-primary" %>
+          <% end %>
+          <span><%= question.vote1 %> votes</span>
+        </div>
+      </div>
+      <div class="col-sm-6 ">
+        <div class="card card-block box">
+          <p class="card-text"><%= question.choice2 %></p>
+          <%= form_for (question) do |f| %>
+            <%= f.hidden_field(:vote2, :value => question.vote2 + 1) %>
+            <%= f.submit 'vote', :class => "btn btn-primary" %>
+          <% end %>
+          <span><%= question.vote2 %> votes</span>
+        </div>
+      </div>
+    </div>
+    <% end %>
+</div>
