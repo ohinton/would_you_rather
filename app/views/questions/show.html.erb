@@ -1,15 +1,42 @@
 <div class="comments">
 
-<% if @question.comments.any? %>
-     <h4>Comments:</h4>
-     <ul>
-       <% @question.comments.each do |comment| %>
-       <li>
-         <%= comment.text %> <%= time_ago_in_words(comment.created_at) %> ago
-       </li>
-       <% end %>
-     </ul>
-     <% else %>
-     <p>There are no comments yet!</p>
-     <% end %>
-   </div>
+  <div class="question-box">
+    <h1>Would you rather...</h1>
+    <hr>
+    <div class="row">
+      <div class="col-md-4 question">
+        <div class="card card-block">
+          <%= image_tag @question.photo1 %>
+          <p class="card-text"><%= @question.choice1 %></p>
+        </div>
+      </div>
+
+      <div class="col-md-4 question">
+        <h1>OR</h1>
+        <div class="image-res"<%= column_chart [["Vote 1", @question.vote1], ["Vote 2", @question.vote2]]  %>
+      </div>
+
+      <div class="col-md-4 question">
+        <div class="card card-block">
+          <%= image_tag @question.photo2 %>
+          <p class="card-text"><%= @question.choice2 %></p>
+        </div>
+      </div>
+      </div>
+
+  <div class="row">
+    <div class="card card-block">
+    <% if @question.comments.any? %>
+         <h4>Comments</h4>
+           <% @question.comments.each do |comment| %>
+             <blockquote><%= comment.text %></blockquote><p> <%= time_ago_in_words(comment.created_at) %> ago by <%= comment.author %></p><br><br>
+           <% end %>
+         <% else %>
+         <p>There are no comments yet!</p>
+         <% end %>
+      </div>
+  </div>
+
+  </div>
+
+</div>

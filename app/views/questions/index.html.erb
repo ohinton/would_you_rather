@@ -38,7 +38,7 @@
 
       <div class="col-md-4">
         <h4>Write a comment!</h4>
-        <%= link_to "add comment", new_question_comment_path(question), class: "btn btn-primary", id: "new_comment", remote: true %>
+        <span id="<%= question.id %>_add_comment"><%= link_to "add comment", new_question_comment_path(question), class: "btn btn-primary", remote: true %></span>
         <br>
         <%= link_to "see all comments", question_path(question), class: "btn btn-primary" %>
       </div>

@@ -9,14 +9,15 @@ class CommentsController < ApplicationController
      @comment = @question.comments.new(comment_params)
      if @comment.save
        flash[:notice] = "You have saved your comment!"
-       redirect_to questions_path
+       redirect_to question_path(@question)
      else
-       render :new
+       flash[:alert] = "Your comment didn't save!"
+       redirect_to questions_path
      end
    end
 
   private
    def comment_params
-     params.require(:comment).permit(:username, :body)
+     params.require(:comment).permit(:author, :text)
    end
   end
