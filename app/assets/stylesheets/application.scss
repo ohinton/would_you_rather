@@ -8,6 +8,11 @@ body {
   padding-top: 100px;
 }
 
+.comments{
+  padding-top: 100px;
+}
+
+
 .question-box {
   margin-bottom: 20px;
   padding: 40px;
@@ -32,4 +37,9 @@ body {
 
 .vote-count {
   text-align: center;
+}
+
+img {
+  width: 100%;
+  border-radius: 10px;
 }

@@ -1,0 +1,15 @@
+<div class="comments">
+
+<% if @question.comments.any? %>
+     <h4>Comments:</h4>
+     <ul>
+       <% @question.comments.each do |comment| %>
+       <li>
+         <%= comment.text %> <%= time_ago_in_words(comment.created_at) %> ago
+       </li>
+       <% end %>
+     </ul>
+     <% else %>
+     <p>There are no comments yet!</p>
+     <% end %>
+   </div>

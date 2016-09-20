@@ -5,16 +5,18 @@
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag "//www.google.com/jsapi" %>
-    <%= javascript_include_tag "application", "chartkick" %>
+    <%= javascript_include_tag 'application', "chartkick", 'data-turbolinks-track': 'reload' %>
+
   </head>
 
   <body>
+    <%= flash[:alert] %>
+    <%= flash[:notice] %>
   <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
       <div class="navbar-header">
-        <a class="navbar-brand" href="#">Would You Rather?</a>
+        <a class="navbar-brand" href="/">Would You Rather?</a>
       </div>
     </div>
   </nav>

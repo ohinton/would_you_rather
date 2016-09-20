@@ -1,6 +1,7 @@
 class Question < ActiveRecord::Base
   validates :choice1, :presence => true
   validates :choice2, :presence => true
+  has_many :comments
 
   def totalVotes
     return self.vote1 + self.vote2

@@ -4,8 +4,9 @@
     <h1>Would you rather...</h1>
     <hr>
     <div class="row">
-      <div class="col-md-4 question">
+      <div class="col-md-3 question">
         <div class="card card-block">
+          <%= image_tag question.photo1 %>
           <p class="card-text"><%= question.choice1 %></p>
           <%= form_for (question), remote: true do |f| %>
             <%= f.hidden_field(:vote1, :value => question.vote1 + 1) %>
@@ -17,14 +18,15 @@
         </div>
       </div>
 
-      <div class="col-md-4 question">
+      <div class="col-md-2 question">
         <h1>OR</h1>
         <p>Total votes: <span class="total-votes" id="<%=question.id%>_votes"> <%= question.totalVotes %> </span> </p>
           <span id="<%=question.id%>_chart" class="img-responsive"></span>
       </div>
 
-      <div class="col-md-4 question">
+      <div class="col-md-3 question">
         <div class="card card-block">
+          <%= image_tag question.photo2 %>
           <p class="card-text"><%= question.choice2 %></p>
           <%= form_for (question), remote: true do |f| %>
             <%= f.hidden_field(:vote2, :value => question.vote2 + 1) %>
@@ -32,6 +34,13 @@
           <% end %>
           <span id="<%=question.id%>_2"><%= question.vote2 %> votes</span>
         </div>
+      </div>
+
+      <div class="col-md-4">
+        <h4>Write a comment!</h4>
+        <%= link_to "add comment", new_question_comment_path(question), class: "btn btn-primary", id: "new_comment", remote: true %>
+        <br>
+        <%= link_to "see all comments", question_path(question), class: "btn btn-primary" %>
       </div>
     </div>
   </div>
