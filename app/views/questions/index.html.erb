@@ -9,7 +9,7 @@
           <p class="card-text"><%= question.choice1 %></p>
           <%= form_for (question), remote: true do |f| %>
             <%= f.hidden_field(:vote1, :value => question.vote1 + 1) %>
-            <%= f.submit 'vote', :class => "btn btn-info"%>
+            <%= f.submit 'vote', :class => "btn btn-info", :id => question.vote1%>
           <% end %>
           <span id="<%=question.id%>_1"><%= question.vote1 %> votes</span>
         </div>
@@ -25,7 +25,7 @@
           <p class="card-text"><%= question.choice2 %></p>
           <%= form_for (question), remote: true do |f| %>
             <%= f.hidden_field(:vote2, :value => question.vote2 + 1) %>
-            <%= f.submit 'vote', :class => "btn btn-info"%>
+            <%= f.submit 'vote', :class => "vote_2 btn btn-info"%>
           <% end %>
           <span id="<%=question.id%>_2"><%= question.vote2 %> votes</span>
         </div>

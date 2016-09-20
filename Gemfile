@@ -43,7 +43,9 @@ group :development, :test do
   gem 'pry'
   gem 'shoulda-matchers'
   gem 'capybara'
+  gem 'poltergeist'
   gem 'factory_girl_rails'
+  gem 'database_cleaner'
   gem 'simplecov', :require => false, :group => :test
 end
 
