@@ -4,7 +4,7 @@
     <h1>Would you rather...</h1>
     <hr>
     <div class="row">
-      <div class="col-sm-4 question">
+      <div class="col-md-4 question">
         <div class="card card-block">
           <p class="card-text"><%= question.choice1 %></p>
           <%= form_for (question), remote: true do |f| %>
@@ -12,16 +12,18 @@
             <%= f.submit 'vote', :class => "btn btn-info", :id => question.vote1%>
           <% end %>
           <span id="<%=question.id%>_1"><%= question.vote1 %> votes</span>
+          <br>
+          <span id="<%=question.id%>_1_alert"></span>
         </div>
       </div>
 
-      <div class="col-sm-4 question">
-        <%= pie_chart Question.group(:vote1).count %>
+      <div class="col-md-4 question">
         <h1>OR</h1>
         <p>Total votes: <span class="total-votes" id="<%=question.id%>_votes"> <%= question.totalVotes %> </span> </p>
+          <span id="<%=question.id%>_chart" class="img-responsive"></span>
       </div>
 
-      <div class="col-sm-4 question">
+      <div class="col-md-4 question">
         <div class="card card-block">
           <p class="card-text"><%= question.choice2 %></p>
           <%= form_for (question), remote: true do |f| %>
