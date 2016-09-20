@@ -16,6 +16,7 @@
       </div>
 
       <div class="col-sm-4 question">
+        <%= pie_chart Question.group(:vote1).count %>
         <h1>OR</h1>
         <p>Total votes: <span class="total-votes" id="<%=question.id%>_votes"> <%= question.totalVotes %> </span> </p>
       </div>
