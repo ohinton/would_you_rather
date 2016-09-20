@@ -40,7 +40,9 @@
         <h4>Write a comment!</h4>
         <span id="<%= question.id %>_add_comment"><%= link_to "add comment", new_question_comment_path(question), class: "btn btn-primary", remote: true %></span>
         <br>
-        <%= link_to "see all comments", question_path(question), class: "btn btn-primary" %>
+        <%= link_to "see all comments", question_path(question), class: "btn btn-primary" %><br>
+        <blockquote><%= question.comments.last.text %></blockquote> <%= time_ago_in_words(question.comments.last.created_at) %> ago
+        by <%= question.comments.last.author %>
       </div>
     </div>
   </div>
