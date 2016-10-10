@@ -5,4 +5,4 @@ $('#<%= @question.id%>_1').text('<%= @question.vote1 %>'+' votes');
 $('#<%= @question.id%>_2').text('<%= @question.vote2 %>'+' votes');
 
 
-new Chartkick.ColumnChart("<%=@question.id%>_chart", [["vote1", <%= @question.vote1 %>],["vote2", <%= @question.vote2 %>]]);
+new Chartkick.ColumnChart("<%=@question.id%>_chart", [["#1", <%= @question.vote1 %>],["#2", <%= @question.vote2 %>]]);
